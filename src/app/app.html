@@ -1,18 +1,26 @@
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-lg fixed-top corporate-nav">
   <div class="container">
-    <a class="navbar-brand" href="#">TaskBoard-Pro</a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">À propos</a>
-      </div>
+    <a class="navbar-brand" routerLink="/home">
+      <i class="bi bi-rocket-takeoff-fill me-2"></i>
+      <span class="brand-text">TaskBoard <span class="fw-light">Pro</span></span>
+    </a>
+    
+    <div class="navbar-nav ms-auto gap-2">
+      <a class="nav-link" routerLink="/home" routerLinkActive="active">
+        <i class="bi bi-grid-1x2-fill me-2"></i>Accueil
+      </a>
+      
+      <a class="nav-link" routerLink="/tasks" routerLinkActive="active">
+        <i class="bi bi-kanban-fill me-2"></i>Missions
+      </a>
+      
+      <a class="nav-link" routerLink="/about" routerLinkActive="active">
+        <i class="bi bi-shield-lock-fill me-2"></i> A propos
+      </a>
     </div>
   </div>
 </nav>
 
-<main class="container">
+<main>
   <router-outlet></router-outlet>
 </main>

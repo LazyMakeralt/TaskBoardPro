@@ -1,0 +1,62 @@
+<div class="about-wrapper text-white">
+  <header class="hero-section py-5 text-center">
+    <div class="container mt-5">
+      <span class="badge rounded-pill bg-primary px-3 py-2 mb-3 text-uppercase fw-bold">Propulsé par TaskFlow Engine</span>
+      <h1 class="display-3 fw-bold mb-4">L'excellence dans la <span class="gradient-text">gestion de flux.</span></h1>
+      <p class="lead opacity-75 mx-auto" style="max-width: 750px;">
+        TaskFlow Solutions redéfinit l'organisation du travail moderne. Grâce à notre technologie propriétaire basée sur Angular, nous transformons le chaos opérationnel en une symphonie de productivité.
+      </p>
+    </div>
+  </header>
+
+  <div class="container mb-5">
+    <div class="row bg-glass-dark rounded-5 py-4 px-2 text-center border-accent shadow-lg">
+      @for (stat of stats; track stat.label) {
+        <div class="col-md-4">
+          <h2 class="fw-bold mb-0 text-primary">{{ stat.value }}</h2>
+          <small class="text-uppercase opacity-50 fw-bold">{{ stat.label }}</small>
+        </div>
+      }
+    </div>
+  </div>
+
+  <section class="container py-5">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6">
+        <h2 class="h1 fw-bold mb-4">Pourquoi choisir <br>notre architecture ?</h2>
+        <p class="opacity-75 mb-4">
+          Contrairement aux solutions classiques, nous n'utilisons pas de rafraîchissement de page. Chaque action est une transition fluide, gérée par notre noyau réactif asynchrone.
+        </p>
+        <button class="btn btn-outline-primary btn-lg px-5 rounded-pill">Consulter le Livre Blanc</button>
+      </div>
+      <div class="col-lg-6 mt-5 mt-lg-0">
+        <div class="row g-3">
+          @for (val of values; track val.title) {
+            <div class="col-12">
+              <div class="card bg-glass border-0 p-3">
+                <div class="d-flex align-items-center">
+                  <div class="icon-box me-3"><i class="bi bi-shield-check text-primary"></i></div>
+                  <div>
+                    <h5 class="mb-1 fw-bold">{{ val.title }}</h5>
+                    <p class="small opacity-75 mb-0">{{ val.desc }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-top border-secondary py-5 mt-5">
+    <div class="container text-center">
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <a href="#" class="text-white opacity-50 text-decoration-none">LinkedIn</a>
+        <a href="#" class="text-white opacity-50 text-decoration-none">Twitter</a>
+        <a href="#" class="text-white opacity-50 text-decoration-none">GitHub Enterprise</a>
+      </div>
+      <p class="small opacity-50">© 2026 TaskFlow Solutions Inc. Siège social : Silicon Valley, CA.</p>
+    </div>
+  </footer>
+</div>

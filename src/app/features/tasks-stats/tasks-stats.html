@@ -1,0 +1,31 @@
+@if (stats$ | async; as s) {
+  <div class="row g-2 mt-3">
+    <div class="col-3">
+      <div class="stat-box border-primary">
+        <span class="label">Total</span>
+        <span class="value text-white">{{ s.total }}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="stat-box border-success">
+        <span class="label">Fait</span>
+        <span class="value text-success">{{ s.completed }}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="stat-box border-warning">
+        <span class="label">Reste</span>
+        <span class="value text-warning">{{ s.pending }}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="stat-box border-info">
+        <span class="label">%</span>
+        <span class="value text-info">{{ s.percent | number:'1.0-0' }}</span>
+      </div>
+    </div>
+  </div>
+}
