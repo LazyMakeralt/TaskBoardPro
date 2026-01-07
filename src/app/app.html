@@ -1,13 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Mon Fil Rouge</a>
-    <div class="navbar-nav">
-      <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
-      <a class="nav-link" routerLink="/about" routerLinkActive="active">À propos</a>
+    <a class="navbar-brand" href="#">TaskBoard-Pro</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">À propos</a>
+      </div>
     </div>
   </div>
 </nav>
 
-<main class="container mt-5">
+<main class="container">
   <router-outlet></router-outlet>
 </main>
