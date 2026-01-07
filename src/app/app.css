@@ -1,18 +1,52 @@
-/* Effet de survol sur les liens de la navbar */
+.navbar {
+  /* On utilise un fond légèrement plus clair que le body pour qu'elle se détache */
+  background-color: rgba(22, 27, 34, 0.95) !important;
+  backdrop-filter: blur(15px);
+  
+  /* On ajoute une bordure inférieure qui brille légèrement */
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent, #00d2ff, #3a7bd5, transparent) 1;
+  
+  padding: 1rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Ombre portée pour donner du relief */
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
 .nav-link {
-  transition: all 0.3s ease;
-  border-radius: 5px;
+  color: #f8fafc !important; /* Blanc cassé très brillant */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.6rem 1.2rem !important;
   margin: 0 5px;
+  transition: all 0.3s ease;
+  opacity: 0.8;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #10b981 !important; /* Vert émeraude au survol */
+  opacity: 1;
+  color: #00d2ff !important;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
 }
 
-/* Style du lien actif (quand on est sur la page) */
 .nav-link.active {
-  background-color: #4f46e5 !important; /* Bleu indigo */
-  color: white !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(58, 123, 213, 0.2)) !important;
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: 8px;
 }

@@ -1,13 +1,29 @@
-/* Import Google Font pour un look moderne */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+/* Import d'une police moderne */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --main-bg: #0b0e14;
+  --card-bg: #161b22;
+  --accent-blue: #00d2ff;
+  --accent-purple: #3a7bd5;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
 
 body {
+  background-color: var(--main-bg);
+  color: var(--text-secondary);
   font-family: 'Inter', sans-serif;
-  background-color: #f8fafc; /* Gris très clair pour le fond */
   margin: 0;
 }
 
-/* On s'assure que le container de notre router-outlet a de l'espace */
-main.container {
-  min-height: 80vh;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  font-weight: 700;
 }
+
+/* Scrollbar stylisée pour le mode sombre */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--main-bg); }
+::-webkit-scrollbar-thumb { background: #30363d; border-radius: 10px; }
