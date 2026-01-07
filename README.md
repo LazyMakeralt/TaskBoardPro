@@ -1,59 +1,24 @@
-# ProjetFilRouge
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.13.
+## sequence 1 
 
-## Development server
+**Commandes :** `npm install` (installation), `ng serve` (lancement).
+**Routes fonctionnelles :** `/home` (Accueil & Gestion des tâches), `/about` (À propos).
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+## sequence 2 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 1. Structure du flux
+- **Service → Composant** : Le `TaskService` utilise un **BehaviorSubject** qui contient la liste des tâches. Le composant `Home` injecte le service et expose l'observable `tasks$`.
+- **Composant → Template** : La vue utilise le **pipe `| async`** pour s'abonner automatiquement au flux et afficher les données en temps réel.
 
-## Code scaffolding
+### 2. Ce que j'ai compris
+- **BehaviorSubject** : C'est un réservoir de données "intelligent". Il stocke la valeur actuelle (la liste des tâches) et la diffuse immédiatement à tous ceux qui s'y abonnent. Contrairement à un simple Observable, il permet d'émettre de nouvelles valeurs avec `.next()`.
+- **Pipe `| async`** : C'est un outil magique dans le HTML qui surveille l'Observable. Il extrait la donnée pour l'affichage et, surtout, il nettoie la mémoire en se désabonnant tout seul quand on change de page.
+- **Flux de mise à jour** : Quand je clique sur "Ajouter" ou "Supprimer", le composant donne l'ordre au Service. Le Service modifie son tableau et "pousse" la mise à jour via `.next()`. Le template réagit instantanément car il est branché sur ce flux.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 3. Points clés retenus
+- **Donnée vivante** : Plus besoin de rafraîchir la page ou de rappeler une fonction pour voir les changements.
+- **Single Source of Truth** : Le service est le seul maître des données, ce qui évite les bugs de synchronisation.
+- **Code Propre** : Moins de `subscribe()` manuels dans le TypeScript grâce au pipe async.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## sequence 3
