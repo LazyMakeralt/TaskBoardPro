@@ -1,21 +1,18 @@
-.navbar {
-  background-color: #333;
-  padding: 1rem;
+/* Effet de survol sur les liens de la navbar */
+.nav-link {
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  margin: 0 5px;
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #10b981 !important; /* Vert émeraude au survol */
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Style appliqué automatiquement au lien actif grâce à routerLinkActive */
-.active {
-  font-weight: bold;
-  border-bottom: 2px solid white;
+/* Style du lien actif (quand on est sur la page) */
+.nav-link.active {
+  background-color: #4f46e5 !important; /* Bleu indigo */
+  color: white !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }

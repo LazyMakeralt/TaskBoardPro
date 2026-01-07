@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import Google Font pour un look moderne */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc; /* Gris très clair pour le fond */
+  margin: 0;
+}
+
+/* On s'assure que le container de notre router-outlet a de l'espace */
+main.container {
+  min-height: 80vh;
+}
