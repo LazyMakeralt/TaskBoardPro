@@ -22,3 +22,22 @@
 - **Code Propre** : Moins de `subscribe()` manuels dans le TypeScript grâce au pipe async.
 
 ## sequence 3
+
+### 1. Organisation par Fonctionnalités (Features)
+L'application est structurée dans le dossier `features/` (Home, Tasks, About). 
+- **Bénéfice** : Séparation claire des responsabilités et maintenance facilitée.
+- **Lazy Loading** : Les composants sont chargés via `loadComponent()`. Le navigateur ne télécharge le code de la page que si l'utilisateur y accède, optimisant drastiquement le temps de chargement initial.
+
+### 2. Dynamisme avec le DOM
+J'ai implémenté l'injection de composants à la volée (comme `TaskHighlight`) sans les déclarer dans le HTML fixe.
+
+
+
+- **ViewContainerRef** : Utilisé comme un point d'ancrage (`#container`) dans le template où le composant sera injecté.
+- **createComponent()** : Permet de générer le composant par programmation.
+- **ref.instance** : Permet de piloter le composant créé (envoyer le titre de la tâche, gérer la fermeture).
+
+### 3. Points clés retenus
+* **Performance** : Moins de code chargé au démarrage grâce au Lazy Loading.
+* **Flexibilité** : Les composants dynamiques permettent de créer des interfaces riches (alertes, mises en avant) sans alourdir le DOM de base.
+* **Professionnalisme** : Cette structure respecte les standards des grandes entreprises utilisant Angular.
