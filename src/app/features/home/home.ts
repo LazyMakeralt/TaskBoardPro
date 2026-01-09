@@ -7,10 +7,6 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
-  template: `
-  <h2>Accueil</h2>
-  <p>Bienvenue sur la page d'accueil.</p>
-`
 })
 
 
