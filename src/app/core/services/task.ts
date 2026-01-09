@@ -19,6 +19,8 @@ export class Task {
     const newTask = { id: Date.now(), title, completed: false, highlighted: false };
     this.tasks = [...this.tasks, newTask];
     this.tasksSubject.next(this.tasks);  
+
+    this.notifService.show(`🚀 Mission "${title}" initialisée.`);
   }
 
   removeTask(id: number) {

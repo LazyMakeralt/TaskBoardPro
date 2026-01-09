@@ -1,10 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { Home } from './features/home/home';
+import { provideRouter } from '@angular/router';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
+      imports: [Home],
+      providers: [
+    provideRouter([]) 
+  ]
     }).compileComponents();
   });
 
@@ -14,10 +19,10 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render the navbar brand', () => {
     const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
+    fixture.detectChanges(); 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ProjetFilRouge');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('TaskBoard Pro');
   });
 });
