@@ -41,3 +41,27 @@ J'ai implémenté l'injection de composants à la volée (comme `TaskHighlight`)
 * **Performance** : Moins de code chargé au démarrage grâce au Lazy Loading.
 * **Flexibilité** : Les composants dynamiques permettent de créer des interfaces riches (alertes, mises en avant) sans alourdir le DOM de base.
 * **Professionnalisme** : Cette structure respecte les standards des grandes entreprises utilisant Angular.
+
+## sequence 5
+
+### 1. Audit de Performance (Angular DevTools & Lighthouse)
+- **Outil utilisé** : Angular DevTools Profiler & Lighthouse Chrome.
+- **Constat initial** : Détection de rafraîchissements inutiles sur la liste des tâches lors de l'édition d'une seule ligne (Change Detection par défaut).
+- **Score Lighthouse initial** : 46/100
+
+### 2. Optimisations implémentées
+Pour améliorer la fluidité et réduire la charge CPU, les actions suivantes ont été menées :
+
+* **Change Detection Strategy** : Passage en `ChangeDetectionStrategy.OnPush` sur les composants principaux (`TasksPageComponent`). Cela limite le cycle de vérification d'Angular aux changements de références `@Input` ou aux émissions des flux `Observable`.
+* **Boucles performantes** : Utilisation de la syntaxe `@for` avec la fonction `track` (ex: `track task.id`). 
+    - *Bénéfice* : Angular réutilise les nœuds DOM existants au lieu de détruire/recréer toute la liste.
+* **Lazy Loading** : Découpage de l'application en modules/routes différés pour réduire le "Main Bundle" initial.
+
+### 3. Audit de Sécurité (XSS & Data Integrity)
+- **Protection XSS** : Vérification de l'absence de la directive `innerHTML`. L'application utilise exclusivement l'interpolation `{{ }}` et le property binding `[value]`, bénéficiant ainsi de la "sanitization" native d'Angular.
+- **Test d'injection** : Tentative d'injection de script via le champ de saisie (`<script>alert()</script>`). 
+    - *Résultat* : Échoué (le contenu est traité comme du texte brut), confirmant la robustesse du framework.
+
+### 4. Résultats après optimisation
+- **Score Lighthouse final** :  85/100
+- **Gain de fluidité** : Réduction drastique des cycles de détection de changements lors des interactions utilisateur.
