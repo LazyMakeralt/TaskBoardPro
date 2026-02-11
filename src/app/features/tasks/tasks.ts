@@ -7,6 +7,7 @@ import { TaskHighlight as TaskHighlightComponent } from '../task-highlight/task-
 import { TaskEdit } from '../task-edit/task-edit';
 import { TaskStats } from '../tasks-stats/tasks-stats';
 import { Notification} from '../../core/services/notification';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { Notification} from '../../core/services/notification';
   standalone: true,
   imports: [AsyncPipe, TaskStats],
   templateUrl: './tasks.html',
-  styleUrl: './tasks.css'
+  styleUrl: './tasks.css', 
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TasksComponent implements OnInit, OnDestroy {
   @ViewChild('alertContainer', { read: ViewContainerRef }) container!: ViewContainerRef;
